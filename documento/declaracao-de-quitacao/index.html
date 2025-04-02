@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" href="../../favicon.png">
+    <title>Declaração de Quitação</title>
+
+	<link rel="stylesheet" href="../../estilos/config.css">
+	<link rel="stylesheet" href="../../estilos/exportar.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0">
+
+	<link rel="stylesheet" href="../../estilos/documento.css">
+</head>
+	
+<body>
+	<div id="declaracao"></div>
+
+	<div id="config">
+        <header>
+            <a href="../../">
+                <span class="material-symbols-rounded" style="color: var(--hydra-royal);">arrow_back_ios_new</span>
+                <img src="../../recursos/hydra/logo.svg" alt="LogoHydra" style="height: 36px;">
+            </a>
+        </header>
+        <h1 style="margin-top: 8px">Dados do Documento</h1>
+		<div class="item">
+            <input type="text" placeholder="Gerente" id="i-gerente">
+        </div>
+		<div class="item">
+            <input type="date" placeholder="00/00/0000" id="i-data">
+        </div>
+		<div class="item">
+            <input type="text" placeholder="Pendência" id="i-pendencia">
+        </div>
+		<div class="item">
+            <input type="text" placeholder="Tempo Limite" id="i-tempo">
+        </div>
+        
+        <div class="divisoria"></div>
+
+        <h1 style="margin-top: 8px">Dados do Cliente</h1>
+		<div class="item">
+            <input type="text" placeholder="CNPJ" id="i-cnpj">
+        </div>
+        <div class="item">
+            <input type="text" placeholder="Razão Social" id="i-razaosocial">
+        </div>
+        <div class="item">
+            <input type="text" placeholder="Titular" id="i-titular">
+        </div>
+		
+		<div id="campos-preenchidos">
+            <span>Campos preenchidos?</span>
+            <label class="material-switch">
+                <input id="campos-switch" type="checkbox" class="switch-principal">
+                <span class="material-slider round"></span>
+            </label>
+        </div>
+		<div id="botao-duplo">
+			<button id="exportar">
+				<span class="material-symbols-rounded">download</span>
+				<span>EXPORTAR</span>
+			</button>
+		</div>
+    </div>
+	
+	<div class="pagina" id="pagina1">
+			
+		<header>
+			<div style="display: flex; flex-direction: column; gap: 14px;">
+				<h1>Declaração de Quitação de Pendência</h1>
+				<h2 class="banco-nome"></h2>
+			</div>
+			<img src="../../recursos/banco/logo.svg" alt="Logo" id="logo">
+		</header>
+		
+		<div class="conteudo">
+			<p>
+				Fica atestado nessa declaração referente ao procedimento de liberação de crédito do contemplado <span id="titular">[TITULAR]</span> que possui a responsabilidade de Sócio-Administrador da empresa de CNPJ: <span id="cnpj">[CNPJ]</span> e Razão Social: <span id="razaosocial">[RAZÃO SOCIAL]</span> que ao concluir a pendência solicitada (<span id="pendencia">[PENDÊNCIA]</span>) pelo <span class="banco-razaosocial"></span> de CNPJ: <span class="banco-cnpj"></span> juntamente ao Banco Central do Brasil de CNPJ: 00.038.166/0001-05 referente a aprovação do crédito liberado em sua titularidade, com o prazo de depósito do valor acordado em até <span id="tempo-limite">[TEMPO LIMITE]</span> após resolução da pendência informada.
+				<br><br>
+				<span class="texto-destaque">Data de Emissão: </span><span id="dia">[DD]</span> de <span id="mes">[MM]</span> de <span id="ano">[AAAA]</span>.
+			</p>
+		</div>
+		
+		<div id="assinaturas">
+			<div style="margin-top: 80px; display: flex; flex-direction: row; gap: 48px;">
+				<div class="a-modelo">
+					<img src="../../recursos/banco/diretor.svg" class="svg-diretor" alt="Assinatura do Diretor" id="a-diretor">
+					<div class="a-div"></div>
+					<span class="banco-diretor">Alexandre Yoshiaki</span>
+					<span class="texto-destaque">DIRETOR EXECUTIVO | <span class="banco-nome"></span></span>
+				</div>
+				<div class="a-modelo">
+					<img src="../../recursos/banco/gerente.svg" class="svg-gerente" alt="Assinatura do Gerente" id="a-gerente">
+					<div class="a-div"></div>
+					<span id="gerente">[GERENTE]</span>
+					<span class="texto-destaque">GERENTE DE CRÉDITO | <span class="banco-nome"></span></span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="selos" id="selo">
+			<img src="../../recursos/documentos/selo-declaracao.png" class="selo" alt="Selo">
+		</div>
+
+		<footer></footer>
+		
+	</div>
+
+	<script src="../../scripts/banco.js"></script>
+
+	<script src="../../scripts/declaracao/cnpj.js"></script>
+	
+	<script src="../../scripts/datas.js"></script>
+	<script src="../../scripts/declaracao/inputs.js"></script>
+
+	<script src="../../scripts/campospreenchidos.js"></script>
+	<script src="../../scripts/declaracao/imprimir.js"></script>
+
+	<script src="../../scripts/titulo.js"></script>
+</body>
+	
+</html>

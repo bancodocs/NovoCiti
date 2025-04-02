@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" href="../../favicon.png">
+    <title>Ordem de Pagamento</title>
+
+	<link rel="stylesheet" href="../../estilos/config.css">
+	<link rel="stylesheet" href="../../estilos/exportar.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0">
+
+	<link rel="stylesheet" href="../../estilos/documento.css">
+</head>
+	
+<body>
+	<div id="ordem"></div>
+
+	<div id="config">
+        <header>
+            <a href="../../">
+                <span class="material-symbols-rounded" style="color: var(--hydra-royal);">arrow_back_ios_new</span>
+                <img src="../../recursos/hydra/logo.svg" alt="LogoHydra" style="height: 36px;">
+            </a>
+        </header>
+        <h1>Ordenante</h1>
+		<div class="item">
+            <input type="text" placeholder="Gerente" id="i-gerente">
+        </div>
+
+		<div class="divisoria"></div>
+
+		<h1 style="margin-top: 8px">Dados da Operação</h1>
+		<div class="itens-duplo">
+			<div class="item">
+				<input type="date" id="i-data">
+			</div>
+			<div class="item" style="min-width: 110px;">
+				<input type="time" id="i-hora">
+			</div>
+		</div>
+		<div class="item">
+            <input type="text" placeholder="Valor do Crédito" id="i-valor">
+        </div>
+        
+        <div class="divisoria"></div>
+
+		<h1 style="margin-top: 8px">Conclusão</h1>
+		<div class="item">
+			<div class="segmented-control">
+				<input type="radio" id="sem" value="sem" name="conclusao"checked>
+				<label for="sem">VAZIA</label>
+				<input type="radio" id="com" value="com" name="conclusao">
+				<label for="com">PREENCHIDA</label>
+			</div>
+			
+			<div class="config-descricao" id="conclusao-descricao" style="display: none;">
+				<b>Texto para horário:</b> (clique para copiar)
+				<br>
+				<span id="copiar" onclick="copiarTexto()">Esta ordem de pagamento foi emitida para conclusão às [HORÁRIO]. Caso a pendência do documento não seja solucionada até o horário informado, a ordem de pagamento será cancelada.</span>
+			</div>
+			<input type="text" style="display: none; white-space: pre-wrap;" id="i-conclusao" placeholder="Digite aqui">
+		</div>
+		
+		<div id="campos-preenchidos">
+            <span>Campos preenchidos?</span>
+            <label class="material-switch">
+                <input id="campos-switch" type="checkbox" class="switch-principal">
+                <span class="material-slider round"></span>
+            </label>
+        </div>
+		<div id="botao-duplo">
+			<button id="exportar">
+				<span class="material-symbols-rounded">download</span>
+				<span>EXPORTAR</span>
+			</button>
+		</div>
+    </div>
+
+	<div id="config2">
+		<h1>Beneficiário</h1>
+		<div class="item">
+            <input type="text" placeholder="Nome Completo" id="i-nome">
+        </div>
+		<div class="item">
+            <input type="text" placeholder="Razão Social" id="i-razaosocial">
+        </div>
+		<div class="item">
+            <input type="text" placeholder="CNPJ" id="i-cnpj">
+        </div>
+		<div class="item">
+            <input type="text" placeholder="Telefone: (00) 0 0000-0000" id="i-telefone">
+        </div>
+
+		<div class="divisoria"></div>
+
+        <div class="item">
+            <input type="text" placeholder="Banco" id="i-banco">
+        </div>
+		<div class="itens-duplo">
+			<div class="item"style="min-width: 110px;">
+				<input type="text" placeholder="Agência" id="i-agencia">
+			</div>
+			<div class="item" style="max-width: 148px;">
+				<input type="text" placeholder="Conta" id="i-conta">
+			</div>
+		</div>
+	</div>
+
+	<div class="pagina" id="pagina1">
+			
+		<header>
+			<div style="display: flex; flex-direction: column; gap: 14px;">
+				<h1>Ordem de Pagamento</h1>
+				<h2 class="banco-nome"></h2>
+			</div>
+			<img src="../../recursos/banco/logo.svg" alt="Logo" id="logo">
+		</header>
+		
+		<div class="conteudo">
+			<div>
+				<div class="texto-destaque" style="margin-bottom: 5px; line-height: 18px;">ORDENANTE</div>
+				<div class="tabela">
+					<div class="linha">
+						<div class="bloco" style="width: 178px;">
+							<div class="bloco-titulo">GERENTE RESPONSÁVEL</div>
+							<div class="slot"><span id="gerente1">[GERENTE]</span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 178px;">
+							<div class="bloco-titulo">RAZÃO SOCIAL</div>
+							<div class="slot"><span class="banco-razaosocial"></span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 177px;">
+							<div class="bloco-titulo">CNPJ</div>
+							<div class="slot"><span class="banco-cnpj"></span></div>
+						</div>
+					</div>
+					<div class="linha">
+						<div class="bloco">
+							<div class="bloco-titulo" style="width: 231px;">ENDEREÇO</div>
+							<div class="slot"><span class="banco-logradouro"></span>, <span class="banco-numero"></span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 125px;">
+							<div class="bloco-titulo">BAIRRO</div>
+							<div class="slot"><span class="banco-bairro"></span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 89px;">
+							<div class="bloco-titulo">CIDADE</div>
+							<div class="slot"><span class="banco-cidade"></span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 33px;">
+							<div class="bloco-titulo">UF</div>
+							<div class="slot"><span class="banco-uf"></span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 57px;">
+							<div class="bloco-titulo">CEP</div>
+							<div class="slot"><span class="banco-cep"></span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="texto-destaque" style="margin-top: 10px; margin-bottom: 5px; line-height: 18px;">BENEFICIÁRIO</div>
+				<div class="tabela">
+					<div class="linha">
+						<div class="bloco">
+							<div class="bloco-titulo" style="width: 266px;">NOME COMPLETO</div>
+							<div class="slot"><span id="nome-completo">[NOME COMPLETO]</span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 266px;">
+							<div class="bloco-titulo">RAZÃO SOCIAL</div>
+							<div class="slot"><span id="razaosocial">[RAZÃO SOCIAL]</span></div>
+						</div>
+					</div>
+					<div class="linha">
+						<div class="bloco" style="width: 134px;">
+							<div class="bloco-titulo">CPF / CNPJ</div>
+							<div class="slot"><span id="cnpj">[CNPJ]</span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 162px;">
+							<div class="bloco-titulo">INSTITUIÇÃO</div>
+							<div class="slot"><span id="banco">[BANCO]</span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 57px;">
+							<div class="bloco-titulo">AGÊNCIA</div>
+							<div class="slot"><span id="agencia">[AGÊNCIA]</span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 94px;">
+							<div class="bloco-titulo">CONTA</div>
+							<div class="slot"><span id="conta">[CONTA]</span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 88px;">
+							<div class="bloco-titulo">TELEFONE</div>
+							<div class="slot"><span id="telefone">[TELEFONE]</span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="texto-destaque" style="margin-top: 10px; margin-bottom: 5px; line-height: 18px;">DADOS DA OPERAÇÃO</div>
+				<div class="tabela">
+					<div class="linha">
+						<div class="bloco">
+							<div class="bloco-titulo" style="width: 178px;">MOEDA</div>
+							<div class="slot">REAL BRASILEIRO</div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 178px;">
+							<div class="bloco-titulo">VALOR</div>
+							<div class="slot">R$ <span id="valor">[VALOR]</span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 177px;">
+							<div class="bloco-titulo">PAÍS</div>
+							<div class="slot">BRASIL</div>
+						</div>
+					</div>
+					<div class="linha">
+						<div class="bloco" style="width: 89px;">
+							<div class="bloco-titulo">DATA</div>
+							<div class="slot"><span id="data">[DATA]</span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 89px;">
+							<div class="bloco-titulo">HORA</div>
+							<div class="slot"><span id="hora">[HORA]</span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 178px;">
+							<div class="bloco-titulo">CÓDIGO DE REGISTRO</div>
+							<div class="slot"><span id="cod-registro">[REGISTRO]</span></div>
+						</div>
+						<div class="bloco" style="margin-left: -1px; width: 178px;">
+							<div class="bloco-titulo">CÓDIGO DE EMISSÃO</div>
+							<div class="slot"><span id="cod-emissao">[EMISSÃO]</span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="observacoes">
+				<div class="texto-destaque" style="margin-top: 10px; line-height: 18px;">OBSERVAÇÕES</div>
+				<p>O valor só será liberado se as informações do beneficiário estiverem de acordo com os dados registrados no cadastro acima e o Cadastro Nacional de Pessoa Jurídica (CNPJ) estiver em situação regular.</p>
+				<p>A instituição financeira efetuará esta operação, aplicando as condições e tarifas de acordo com os termos e condições do banco. É possível uma eventual alteração no valor da ordem, devido às despesas causadas por terceiros bancos envolvidos nesta transação ou pendências documentais. O cliente também se declara ciente e de acordo com as leis e normas que regulam os procedimentos de ordens de pagamento, especialmente no que diz respeito ao prazo de transferência e despesas bancárias. A instituição financeira, se necessário, reserva-se ao direito de efetuar qualquer alteração na ordem de pagamento.</div>
+				<p><span id="conclusao">[CONCLUSÃO]</span></p>					
+			</div>
+
+			<div id="assinaturas" style="margin-top: 20px;">
+				<div class="a-modelo">
+					<div class="a-digital">
+						<div class="digital-texto">Assinado com Certificado Digital ICP Brasil</div>
+						<div class="digital-texto" style="font-size: 12px; line-height: 15px"><span id="assinatura">[ASSINATURA]</span></div>
+					</div>
+					<div class="a-div"></div>
+					<span id="gerente2">[GERENTE]</span>
+					<span class="texto-destaque">GERENTE DE CRÉDITO | <span class="banco-nome"></span></span>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+	</div>
+
+	<script src="../../scripts/banco.js"></script>
+
+	<script src="../../scripts/ordem/registro.js"></script>
+	<script src="../../scripts/ordem/emissao.js"></script>
+	<script src="../../scripts/ordem/assinatura.js"></script>
+
+	<script src="../../scripts/ordem/cnpj.js"></script>
+	
+	<script src="../../scripts/ordem/data-hora.js"></script>
+	<script src="../../scripts/ordem/valor.js"></script>
+	<script src="../../scripts/ordem/inputs.js"></script>
+	<script src="../../scripts/ordem/telefone.js"></script>
+
+	<script src="../../scripts/ordem/copiar.js"></script>
+	<script src="../../scripts/ordem/conclusao.js"></script>
+
+	<script src="../../scripts/campospreenchidos.js"></script>
+	<script src="../../scripts/ordem/imprimir.js"></script>
+
+	<script src="../../scripts/titulo.js"></script>
+</body>
+	
+</html>

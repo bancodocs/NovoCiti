@@ -1,0 +1,488 @@
+/* CSS Document */
+
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+    --bc-principal: #255BE3;
+    --bc-escuro: #232222;
+    --bc-texto: #505150;
+    --bc-h2: #E0DDD8;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#documento {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-self: start;
+}
+
+/* CAPA */
+
+#capa {
+    width: 595px;
+    height: 842px;
+
+    border: 1px solid black;
+
+    position: relative;
+}
+
+#capa header {
+    width: 539px;
+
+    padding-top: 100px;
+    padding-right: 56px;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: end;
+    justify-content: end;
+}
+
+#capa-conteudo {
+    margin-top: 24px;
+    margin-left: 184px;
+}
+
+#capa h1 {
+    margin: 12px 0px 0px 0px;
+
+    color: var(--bc-principal);
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 23px;
+
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+#capa h2 {
+    margin: 14px 0px 0px 0px;
+
+    color: var(--bc-escuro);
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 13px;
+
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+#capa footer {
+    width: 547px;
+    height: 34px;
+    
+    position: absolute;
+    bottom: 0px;
+
+    background-color: var(--bc-escuro);
+
+    border-radius: 16px 16px 0px 0px;
+    padding: 0px 24px 0px 24px;
+}
+
+/* PÁGINA */
+
+.pagina {
+    width: 595px;
+    height: 842px;
+
+    background-image: url(../recursos/banco/marca-dagua.svg);
+	background-size: cover;
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.pagina header {
+    height: 96px;
+
+    border-radius: 0px 0px 16px 16px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0px 48px 0px 48px;
+
+    background-color: var(--bc-escuro);
+}
+
+.pagina header h1 {
+    font-family: 'Open Sans';
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 16px;
+    color: var(--bc-principal);
+    margin: 0px;
+}
+
+.pagina header h2 {
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 8px;
+    color: var(--bc-h2);
+    margin: 0px;
+}
+
+.pagina header #logo {
+    height: 42px;
+}
+
+.conteudo {
+    padding: 24px 48px 24px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.conteudo p {
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--bc-texto);
+
+    text-align: justify;
+
+    margin: 0px;
+
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+.texto-destaque {
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--bc-texto);
+
+    text-align: justify;
+
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+.texto-sumir {
+	opacity: 0;
+}
+
+.pagina footer {
+    width: 547px;
+    height: 34px;
+    position: absolute;
+    bottom: 0px;
+
+    background-color: var(--bc-escuro);
+
+    border-radius: 16px 16px 0px 0px;
+    padding: 0px 24px 0px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 10px;
+    color: var(--bc-principal);
+
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+/* ASSINATURAS */
+
+#assinaturas {
+    margin-top: 80px;
+
+    padding: 0px 48px 0px 48px;
+    
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--bc-texto);
+}
+
+.a-modelo {
+	display: flex;
+	flex-direction: column;
+
+    position: relative;
+}
+
+.a-div {
+	width: 225px;
+	height: 1px;
+	
+	background-color: #001001;
+	
+	margin-bottom: 5px;
+}
+
+.svg-diretor {
+	position: absolute;
+	left: 12px;
+	top: -54px;
+}
+
+.svg-gerente {
+	position: absolute;
+	left: 51px;
+	top: -27px;
+}
+
+.a-digital {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: 1px;
+	
+	position: absolute;
+	left: 0px;
+	top: -30px;
+}
+
+.digital-texto {
+	font-family: 'Calibri';
+	color: #000;
+	font-size: 10px;
+	font-weight: 400;
+	word-wrap: break-word;
+}
+
+/* SELOS */
+
+.selos {
+	position: absolute;
+	right: 80px;
+	bottom: 424px;
+	z-index: 1;
+}
+
+.selo {
+	width: 185px;
+}
+
+/* CONTRACAPA */
+
+#contracapa {
+    width: 595px;
+    height: 842px;
+
+    border: 1px solid black;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+#contracapa footer {
+    width: 547px;
+    height: 34px;
+    
+    position: absolute;
+    bottom: 0px;
+
+    background-color: var(--bc-escuro);
+
+    border-radius: 16px 16px 0px 0px;
+    padding: 0px 24px 0px 24px;
+}
+
+/* COMPROVANTE */
+
+#comprovante {
+    display: flex;
+	flex-direction: column;
+	
+	width: 595px;
+	height: 842px;
+	
+	border: 1px solid black;
+	
+	background-image: url(../recursos/banco/marca-dagua.svg);
+	background-size: cover;
+
+    position: relative;
+}
+
+#comprovante header {
+    height: 96px;
+
+    border-radius: 0px 0px 16px 16px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0px 48px 0px 48px;
+
+    background-color: var(--bc-escuro);
+}
+
+#comprovante header h1 {
+    font-family: 'Open Sans';
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 16px;
+    color: var(--bc-principal);
+    margin: 0px;
+}
+
+#comprovante header h2 {
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 8px;
+    color: var(--bc-h2);
+    margin: 0px;
+}
+
+#comprovante footer {
+    width: 547px;
+    height: 34px;
+    position: absolute;
+    bottom: 0px;
+
+    background-color: var(--bc-escuro);
+
+    border-radius: 16px 16px 0px 0px;
+    padding: 0px 24px 0px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 10px;
+    color: var(--bc-principal);
+
+    font-feature-settings: 'pnum' 1, 'lnum' 1;
+}
+
+.opcoes {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.linha {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#comprovante .conteudo h1 {
+	color: #1A1A1A;
+	font-size: 16px;
+	font-family: 'Open Sans';
+	font-weight: 600;
+
+	word-wrap: break-word;
+	margin-top: 16px;
+	line-height: 24px;
+
+    margin: 0px;
+}
+
+#comprovante .conteudo h2 {
+	color: #6D6D6D;
+	font-size: 16px;
+	font-family: 'Open Sans';
+	font-weight: 400;
+
+	word-wrap: break-word;
+	line-height: 24px;
+
+    margin: 0px;
+}
+
+#comprovante .conteudo span {
+	text-align: right;
+	color: #1A1A1A;
+	font-size: 16px;
+	font-family: 'Open Sans';
+	font-weight: 500;
+
+	word-wrap: break-word;
+	line-height: 24px;
+}
+
+#comprovante .divisoria {
+	height: 1px;
+	width: 100%;
+	background-color: var(--bc-principal);
+	margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+/* ORDEM DE PAGAMENTO */
+
+.tabela {
+	display: flex;
+	flex-direction: column;
+	
+	gap: 3px;
+}
+
+.linha {
+	display: flex;
+	flex-direction: row;
+}
+
+.bloco{
+	display: flex;
+	flex-direction: column;
+	max-width: 266px;
+	gap: 3px;
+}
+
+.bloco-titulo {
+	color: black;
+	font-size: 6px;
+	font-family: 'Arial';
+	font-weight: 400;
+	text-transform: uppercase;
+	word-wrap: break-word;
+	line-height: 7px;
+}
+
+.slot {
+	color: #001001;
+	font-size: 9px;
+	font-family: 'Arial';
+	font-weight: 400;
+	word-wrap: break-word;
+	font-feature-settings: 'ss03' 1;
+	text-transform: uppercase;
+	padding: 6px 4px 6px 4px;
+	border: 1px solid black;
+	justify-content: flex-start;
+	align-items: center;
+	overflow: hidden; /* esconde qualquer conteúdo que ultrapasse a largura */
+    white-space: nowrap; /* faz com que o texto não quebre para a próxima linha */
+    text-overflow: ellipsis; /* adiciona "..." para indicar que o texto foi truncado */
+}
